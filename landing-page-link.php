@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       Landing Page Tracking Link
  * Description:       Meta input for landing pages to provide custom tracking link and update page URL accordingly
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            WC Bessinger
@@ -27,7 +27,9 @@ add_action('plugins_loaded', function () {
     include_once LP_TRACKING_PATH . 'functions/save-post.php';
 
     // runs to update old tracking data (as originally implemented using ACF)
-    include_once LP_TRACKING_PATH . 'functions/old-data-update.php';
+    if (class_exists('ACF')) :
+        include_once LP_TRACKING_PATH . 'functions/old-data-update.php';
+    endif;
 
     // function to replace front-end links
     include_once LP_TRACKING_PATH . 'functions/frontend-link-replace.php';

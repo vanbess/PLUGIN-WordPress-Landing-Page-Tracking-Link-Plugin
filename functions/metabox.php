@@ -4,11 +4,28 @@
 // register metabox
 // ~~~~~~~~~~~~~~~~~ 
 add_action('add_meta_boxes', function () {
+
     add_meta_box(
         'landing-page-tracking-link',
         __('Landing Page Tracking Link Settings', 'lp-tracking'),
         'landing_page_tracking_link',
         'page',
+        'normal'
+    );
+
+    add_meta_box(
+        'landing-page-tracking-link',
+        __('Landing Page Tracking Link Settings', 'lp-tracking'),
+        'landing_page_tracking_link',
+        'landing',
+        'normal'
+    );
+
+    add_meta_box(
+        'landing-page-tracking-link',
+        __('Landing Page Tracking Link Settings', 'lp-tracking'),
+        'landing_page_tracking_link',
+        'collection',
         'normal'
     );
 });
@@ -164,7 +181,6 @@ function landing_page_tracking_link() {
                 e.preventDefault();
                 $(this).parents('.lpt-tracking-pair').remove();
             });
-
 
         });
     </script>
